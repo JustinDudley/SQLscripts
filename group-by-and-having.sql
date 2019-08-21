@@ -57,5 +57,3 @@ select * from customers
 
 
 
-
-
