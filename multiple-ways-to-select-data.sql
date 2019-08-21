@@ -9,4 +9,5 @@ SELECT Name, City, State FROM Customers
 	WHERE (State = 'OH') OR (State = 'KY') ORDER BY State desc, City;
 SELECT Name FROM Customers WHERE City = 'Jersey City';
 select * from Customers;
+select * from Customers where state = 'oh' or name = 'mtv';
 
