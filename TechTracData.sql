@@ -55,8 +55,44 @@ insert into TechTopix (Description) Values ('Spring');
 insert into TechTopix (Description) Values ('JPA');
 */
 
+/*
+--parameter:
+declare @GitGithubId int;
+select @GitGithubId = id from TechTopix where Description = 'Git/Github'; --try highlighting just this line and running it
+-- somehow this line, the stuff in this line, is used as part of something else around here
 
-select * from techtopix
+insert into TechTracTopix (TechTracId, TechTopixId) values ('DNET', @GitGithubId);
+insert into TechTracTopix (TechTracId, TechTopixId) values ('JAVA', @GitGithubId);
+--it'll stuff it right into your parameter. 
+*/
+
+
+select tt.Description, tc.Id, tc.Description
+	from techtopix tt
+	join techtractopix ttt
+		on tt.id = ttt.techtopixId
+	join techtrac tc
+		on tc.id = ttt.techtracid
+	where tt.Description = 'Git/Github'
+	
+ 
+ declare @sqlserverid int
+ select @sqlserverid = id from techtopix where description = 'SQL Server';
+
+ Insert into TechTracTopix (TechTracId, TechTopixId) values ('DNET', @sqlserverid);
+
+
+ -- copied from above, altered a bit
+ -- this gives a summary of all the relationships 
+select tt.Description, tc.Id, tc.Description
+	from techtopix tt
+	join techtractopix ttt
+		on tt.id = ttt.techtopixId
+	join techtrac tc
+		on tc.id = ttt.techtracid
+	--where tt.Description = 'Git/Github'
+	order by tc.Description
+
 
 
 
