@@ -56,7 +56,7 @@ go
 
 
 -- and now, back to our regularly scheduled program...
-/*
+
 CREATE TABLE TechTrac (
 	Id nchar(4) not null primary key,      --the n in nchar is for unicode.  Note:  we didn't use var (variable), must be 4
 	Description nvarchar(30) not null,
@@ -96,7 +96,7 @@ CREATE TABLE TechTracTopix (		-- this is the RELATIONSHIP table, the one that jo
 	TechTracId nchar(4) not null foreign key references TechTrac(Id),
 	TechTopixId int not null foreign key references TechTopix(Id)
 );
-*/
+
 
 
 
