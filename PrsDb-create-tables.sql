@@ -2,7 +2,16 @@
 
 -- create the tables for PRS Database
 
---  Users default is supposed to be set to 1, yes?
+/*
+DROP TABLE Requestlines;
+DROP TABLE Requests;
+DROP TABLE Products;
+DROP TABLE Vendors;
+DROP TABLE Users;
+*/
+
+
+--  Users default is supposed to be set to 1?? I have set it to 0 for now.
 CREATE TABLE Users (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	Username nvarchar(30) not null UNIQUE,
@@ -11,8 +20,8 @@ CREATE TABLE Users (
 	Lastname nvarchar(30) not null,
 	Phone nvarchar(12),
 	Email nvarchar(255),
-	IsReviewer bit not null default 1,
-	IsAdmin bit not null default 1
+	IsReviewer bit not null default 0,
+	IsAdmin bit not null default 0
 );
 
 CREATE TABLE Vendors (
