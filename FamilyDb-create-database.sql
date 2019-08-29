@@ -1,13 +1,25 @@
 
 
--- -- -- FamilyDb:  Create Tables, then populate them  -- -- -- 
 
--- STEP ONE:  CREATE TWO TABLES
+--FamilyDb--
+
+--STEP ONE: Create Database
+USE [master]
+GO
+DROP DATABASE IF EXISTS [FamilyDb]
+GO
+CREATE DATABASE [FamilyDb]
+GO
+USE [FamilyDb]
+GO
+
+
+-- STEP	TWO:  CREATE TWO TABLES
 
 -- must drop FamilyMembers first. Otherwise, SSMS won't allow me to drop Species, because Species
--- is referenced by FamilyMembers
-DROP TABLE if exists FamilyMembers;  --must drop FamilyMembers first. Otherwise, SSMS won't allow me to drop
-
+-- is referenced by FamilyMembers.Except, now that this script is combined with the code above, which drops 
+-- the Db altogether, it probably doesn't matter. 
+DROP TABLE if exists FamilyMembers;  
 -- now I can drop Species;  Then add them both back in.
 DROP TABLE if exists Species;
 CREATE TABLE Species (
@@ -31,7 +43,7 @@ CREATE TABLE FamilyMembers (
 	Alive bit not null default 1
 );
 
--- STEP TWO:  INSERT VALUES INTO THE TABLES
+-- STEP THREE:  INSERT VALUES INTO THE TABLES
 insert into Species 
 	(Type, Genus, IsDomesticated, AvgLifeSpan)
 	values ('Human', 'Primate', 1, 80);
@@ -74,3 +86,4 @@ insert into FamilyMembers
 	(FirstName, LastName, Birthdate, SpeciesId, Occupation, Address, City, State, ZipCode, Alive)
 values ('Guiddea', 'Sprigg-Dudley', '2013-05-01', 4, 'Forager', '502 Park Ave.', 'Loveland', 'OH', '45140', 0);
 
+select * from familymembers;

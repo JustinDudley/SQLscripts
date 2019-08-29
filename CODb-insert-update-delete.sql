@@ -29,7 +29,11 @@ insert into Orders (CustomerId, Date, Description)
 
 -- this deletes BOTH records, fyi
 delete from customers
-	where city = 'mason';
+	where city = 'mason'
+	
+
+select * from customers 
+order by city;
 
 
 -- Let's use PARAMETERS instead, to make this easier.  We won't have to worry about messing up

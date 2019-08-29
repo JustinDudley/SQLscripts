@@ -1,4 +1,17 @@
 
+/*
+August 28 notes on PRODUCT REQUEST SYSTEM Database
+(the Db that will become our capstone project):
+----------------------- ----------------------
+All or most of the info for this Db exists in the following places:
+Justin's sources:
+  1. C/repos/SQLscripts/PrsDb-create-database.sql [ACCESSES PrsDb]
+  2. C/repos/SQLscripts/PrsDb-insert-data.sql  [unfinished project] [ACCESSES PrsDb]
+Greg's sources:
+  1. C/repos/bootcamp-class-material/SqlPrsDbScript.sql [ACCESSES SqlPrs]
+  2. C/repos/bootcamp-class-material/PrsDb-Specs.md (markdown file, specs for the project)
+*/
+
 
 -- insert data into PRS Database
 -- ~6 vendors, ~12 products, ~6 requests

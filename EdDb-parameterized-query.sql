@@ -2,17 +2,12 @@
 
 select * from student stu
 
-select * from Student stu  -- could type "Student as stu", but no one does that
+select CONCAT(firstname, ' ', lastname)as 'Name' from Student stu  -- could type "Student as stu", but no one does that
 	where stu.SAT >= 1000 and stu.SAT <= 1300
 	order by stu.SAT desc
 
 
-	select CONCAT(firstname, ' ', lastname)as 'Name' from Student stu  -- could type "Student as stu", but no one does that
-	where stu.SAT >= 1000 and stu.SAT <= 1300
-	order by stu.SAT desc
-
-
-select * from Student  -- could type "Student as stu", but no one does that
+select * from Student stu  -- could type "Student AS stu", but no one does that
 	where SAT < 1000 or SAT > 1400
 	
 -- USING PARAMETERS.  We want a low SAT score, and a high SAT score
