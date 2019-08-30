@@ -8,15 +8,17 @@ select sum(sales) from customers;	--yields a very large number
 
 --what if we want the sum of all sales from just Cincinnati?
 select sum(sales) from customers where city = 'Cincinnati'
-
+select * from customers
 --SQL can take the entire set of input records, and break them up or group them by some criteria.
 --   - put them into groups
-SELECT city,  count(*) , sum(sales)
+SELECT city,  count(*) as 'Count', sum(sales) as 'Sum of Sales'
 	FROM customers
 	GROUP BY city		-- can't use keyword "desc"
 	-- WHERE sales > 600000 --this won't work. 'WHERE' clause applies to INDIV. rows
-	HAVING sum(sales) > 600000
-	ORDER BY sum(sales) desc
+	HAVING sum(sales) > 0
+	--ORDER BY sum(sales) desc
+
+	select concat(name, city) as 'mash' from Customers
 
 	--preview:
 update Customers set sales = sales + 100000 where name = 'Kroger';

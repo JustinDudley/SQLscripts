@@ -2,16 +2,43 @@
 USE [FamilyDb]
 
 select * from species;
-
+insert into FamilyMembers (Firstname, Lastname, Birthdate, SpeciesId, Occupation, ZipCode, Alive)
+	values ('George', 'Orwell', '1930-12-11', 1, 'Writer', 33333, 0);
 select * from species	
 	where type = 'HouseCat';
-
+insert into FamilyMembers (FirstName, LastName, BirthDate, SpeciesId, Occupation, Alive)
+	values ('Michael', 'Jackson', '1960-03-03', 3, 'Musician', 0);
 select * from familymembers
 	where speciesId = 2;
 
+update FamilyMembers set SpeciesId = 2
+	where firstname = 'Michael'
+update species set Genus = 'amoeba' where Type = 'housecat' 
+update species
+	set genus = 'plankton'
+	where isDomesticated = 0;
+select * from species
 select Id from species
 	where type = 'HouseCat';
 
+delete from species
+	where id = 7
+select * from species
+
+create table FaveFood (
+	Id int Identity(1,1) PRIMARY KEY,
+	Name varchar(25),
+	FamilyMembersId nvarchar(30) FOREIGN KEY REFERENCES FamilyMembers
+);
+
+select * from FaveFood;
+	
+
+
+
+update FamilyMembers set lastname = 'Marshmallow'
+	where lastname = 'sprigg-dudley'
+select * from FamilyMembers;
 select FirstName from FamilyMembers FM
 	join Species Sp
 	on FM.SpeciesId = Sp.Id
